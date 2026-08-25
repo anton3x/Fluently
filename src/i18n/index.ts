@@ -14,7 +14,9 @@ import { DEFAULT_LANGUAGE } from "@/constants";
 
 const deviceLanguage = getLocales()[0]?.languageCode;
 const initialLanguage =
-  deviceLanguage && languages.includes(deviceLanguage as Language) ? deviceLanguage : DEFAULT_LANGUAGE;
+  deviceLanguage && languages.includes(deviceLanguage as Language)
+    ? deviceLanguage
+    : DEFAULT_LANGUAGE;
 const i18n = createInstance();
 
 i18n.use(initReactI18next).init({

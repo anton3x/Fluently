@@ -61,11 +61,7 @@
       "indexes": {
         "question_options_question_language_text": {
           "name": "question_options_question_language_text",
-          "columns": [
-            "question_id",
-            "language",
-            "text"
-          ],
+          "columns": ["question_id", "language", "text"],
           "isUnique": true
         }
       },
@@ -74,12 +70,8 @@
           "name": "question_options_question_id_questions_id_fk",
           "tableFrom": "question_options",
           "tableTo": "questions",
-          "columnsFrom": [
-            "question_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["question_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -145,12 +137,8 @@
           "name": "question_progress_question_id_questions_id_fk",
           "tableFrom": "question_progress",
           "tableTo": "questions",
-          "columnsFrom": [
-            "question_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["question_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }

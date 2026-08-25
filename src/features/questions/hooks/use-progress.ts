@@ -1,4 +1,4 @@
-import { useQuery} from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useProgressRepository } from "../providers/progress-provider";
 
 export function useProgress() {

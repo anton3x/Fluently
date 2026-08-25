@@ -8,16 +8,9 @@ const ProgressContext = createContext<IProgressRepository | null>(null);
 export function ProgressProvider({ children }: PropsWithChildren) {
   const db = useDatabase();
 
-  const repository = useMemo(
-    () => new ProgressRepository(db),
-    [db]
-  );
+  const repository = useMemo(() => new ProgressRepository(db), [db]);
 
-  return (
-    <ProgressContext.Provider value={repository}>
-      {children}
-    </ProgressContext.Provider>
-  );
+  return <ProgressContext.Provider value={repository}>{children}</ProgressContext.Provider>;
 }
 
 export function useProgressRepository() {

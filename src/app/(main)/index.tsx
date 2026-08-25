@@ -107,7 +107,10 @@ export default function PracticeScreen() {
         </Button>
 
         <View className="h-3 flex-1 overflow-hidden rounded-full bg-default">
-          <View className="h-full rounded-full bg-accent" style={{ width: `${progress?.percentage ?? 0}%` }} />
+          <View
+            className="h-full rounded-full bg-accent"
+            style={{ width: `${progress?.percentage ?? 0}%` }}
+          />
         </View>
       </View>
 

@@ -63,7 +63,7 @@ export class ProgressRepository implements IProgressRepository {
             ),
         })
         .from(questionProgress);
-        
+
       const progress = result[0];
       const total = progress?.total ?? 0;
       const completed = progress?.completed ?? 0;

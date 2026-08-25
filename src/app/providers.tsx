@@ -24,7 +24,15 @@ export default function Providers({ children }: { children: React.ReactNode }) {
         <ProgressProvider>
           <QuestionsProvider>
             <GestureHandlerRootView style={{ flex: 1 }}>
-              <HeroUINativeProvider>{children}</HeroUINativeProvider>
+              <HeroUINativeProvider
+                config={{
+                  devInfo: {
+                    stylingPrinciples: false,
+                  },
+                }}
+              >
+                {children}
+              </HeroUINativeProvider>
             </GestureHandlerRootView>
           </QuestionsProvider>
         </ProgressProvider>

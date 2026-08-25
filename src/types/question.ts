@@ -1,8 +1,4 @@
-import {
-  Question,
-  QuestionOption,
-  QuestionProgress,
-} from "@/db/schema";
+import { Question, QuestionOption, QuestionProgress } from "@/db/schema";
 
 export type QuestionWithOptions = Question & {
   options: QuestionOption[];

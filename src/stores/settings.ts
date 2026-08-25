@@ -5,17 +5,17 @@ import type { Language } from "@/db/schema";
 import { DEFAULT_LANGUAGE, DEFAULT_VOICE } from "@/constants";
 
 type SettingsState = {
-  language: Language
-  voiceId: string
-  hasSeenOnboarding: boolean
-  hasHydrated: boolean
-  dailyReminderEnabled: boolean
-  setSeen: () => void
-  setUnSeen: () => void
-  setLanguage: (language: Language) => void
-  setHasHydrated: (value: boolean) => void
-  setVoiceId: (voiceId: string) => void
-  setDailyReminderEnabled: (enabled: boolean) => void
+  language: Language;
+  voiceId: string;
+  hasSeenOnboarding: boolean;
+  hasHydrated: boolean;
+  dailyReminderEnabled: boolean;
+  setSeen: () => void;
+  setUnSeen: () => void;
+  setLanguage: (language: Language) => void;
+  setHasHydrated: (value: boolean) => void;
+  setVoiceId: (voiceId: string) => void;
+  setDailyReminderEnabled: (enabled: boolean) => void;
 };
 
 export const useSettingsStore = create<SettingsState>()(
@@ -44,8 +44,8 @@ export const useSettingsStore = create<SettingsState>()(
       }),
       onRehydrateStorage: () => {
         return (state) => {
-          state?.setHasHydrated(true)
-        }
+          state?.setHasHydrated(true);
+        };
       },
     }
   )

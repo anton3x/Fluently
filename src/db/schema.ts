@@ -110,22 +110,16 @@ export const questionsRelations = relations(questions, ({ many, one }) => ({
   progress: one(questionProgress),
 }));
 
-export const questionOptionsRelations = relations(
-  questionOptions,
-  ({ one }) => ({
-    question: one(questions, {
-      fields: [questionOptions.questionId],
-      references: [questions.id],
-    }),
-  })
-);
+export const questionOptionsRelations = relations(questionOptions, ({ one }) => ({
+  question: one(questions, {
+    fields: [questionOptions.questionId],
+    references: [questions.id],
+  }),
+}));
 
-export const questionProgressRelations = relations(
-  questionProgress,
-  ({ one }) => ({
-    question: one(questions, {
-      fields: [questionProgress.questionId],
-      references: [questions.id],
-    }),
-  })
-);
+export const questionProgressRelations = relations(questionProgress, ({ one }) => ({
+  question: one(questions, {
+    fields: [questionProgress.questionId],
+    references: [questions.id],
+  }),
+}));
