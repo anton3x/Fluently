@@ -1,0 +1,144 @@
+{
+  "tabs": { "learn": "Apprendre", "practice": "Pratiquer", "settings": "Réglages" },
+  "common": { "close": "Fermer" },
+  "accessibility": {
+    "fluentlyLogo": "Logo Fluently",
+    "progressComplete": "{{percentage}}% terminé"
+  },
+  "errors": { "unknown": "Erreur inconnue" },
+  "onboarding": {
+    "welcome": {
+      "title": "Bienvenue sur Fluently",
+      "description": "Développez vos compétences linguistiques, une question à la fois.",
+      "action": "Commencer"
+    },
+    "language": {
+      "title": "Choisissez votre langue",
+      "description": "Sélectionnez la langue que vous souhaitez utiliser dans Fluently. Vous pourrez la modifier plus tard.",
+      "action": "Continuer"
+    },
+    "ready": {
+      "title": "Tout est prêt",
+      "description": "Fluently est prêt. Commençons à créer votre habitude linguistique.",
+      "action": "Commencer à apprendre"
+    }
+  },
+  "home": {
+    "title": "Bon retour",
+    "description": "Reprenez là où vous vous êtes arrêté.",
+    "progress": "{{completed}} sur {{total}} terminées",
+    "noQuestions": "Pas encore de questions",
+    "progressDescription": "Terminez votre prochaine pratique pour continuer votre progression.",
+    "continuePractice": "Continuer la pratique"
+  },
+  "practice": {
+    "loadingTitle": "Chargement de la question...",
+    "loadingDescription": "Préparation de votre prochaine pratique.",
+    "completeTitle": "Vous êtes à jour.",
+    "completeDescription": "Il n'y a plus de questions à pratiquer pour le moment.",
+    "backToLearn": "Retour à Apprendre",
+    "leave": "Quitter la pratique",
+    "prompt": "Que signifie '{{word}}' ?",
+    "pronounce": "Écouter la prononciation de {{word}}",
+    "correct": "Correct !",
+    "incorrect": "Pas tout à fait.",
+    "check": "Vérifier",
+    "next": "Suivant",
+    "errorTitle": "Un problème est survenu",
+    "errorDescription": "Nous n'avons pas pu charger votre question de pratique. Réessayez."
+  },
+  "settings": {
+    "general": "Réglages généraux",
+    "notifications": {
+      "title": "Préférences de notifications",
+      "description": "Rappels de pratique et invites quotidiennes",
+      "dailyTitle": "Rappel quotidien",
+      "dailyDescription": "Recevez un rappel pour pratiquer à 9 h 00.",
+      "dailyToggle": "Rappel de pratique quotidien",
+      "dailyTime": "Tous les jours à 9 h 00",
+      "channelName": "Rappels quotidiens",
+      "reminderTitle": "C'est l'heure de pratiquer",
+      "reminderBody": "Continuez votre série Fluently.",
+      "permissionDeniedTitle": "Les notifications sont désactivées",
+      "permissionDeniedDescription": "Autorisez les notifications dans les réglages de votre appareil pour activer les rappels quotidiens.",
+      "scheduleErrorTitle": "Impossible de mettre à jour le rappel",
+      "scheduleErrorDescription": "Réessayez."
+    },
+    "devices": {
+      "title": "Appareils connectés",
+      "description": "Gérer les appareils associés",
+      "comingSoonTitle": "Bientôt disponible",
+      "comingSoonDescription": "Cette fonctionnalité n'est pas encore disponible."
+    },
+    "voice": {
+      "title": "Voix",
+      "selectPlaceholder": "Sélectionnez une voix",
+      "listLabel": "Voix",
+      "loading": "Chargement des voix...",
+      "loadError": "Impossible de charger les voix"
+    },
+    "language": { "title": "Langue", "label": "Langue de l'interface et de la pratique" },
+    "reset": { "title": "Réinitialiser l'accueil", "description": "Afficher à nouveau l'accueil" },
+    "support": "Assistance et autres",
+    "help": {
+      "title": "Centre d'aide",
+      "description": "Réponses et assistance",
+      "sheetTitle": "Comment pouvons-nous vous aider ?",
+      "sheetDescription": "Réponses rapides pour utiliser Fluently.",
+      "practiceQuestion": "Comment fonctionne la pratique ?",
+      "practiceAnswer": "Répondez à chaque question et confirmez votre choix. Les bonnes réponses sont marquées comme terminées.",
+      "reminderQuestion": "Comment fonctionnent les rappels quotidiens ?",
+      "reminderAnswer": "Activez-les dans les préférences de notifications pour recevoir un rappel local tous les jours à 9 h 00.",
+      "languageQuestion": "Comment changer ma langue ?",
+      "languageAnswer": "Choisissez Langue dans les réglages. Cela met à jour l'interface et les réponses de pratique."
+    },
+    "terms": {
+      "title": "Conditions et confidentialité",
+      "description": "Conditions d'utilisation et politique de confidentialité",
+      "sheetTitle": "Conditions et confidentialité",
+      "draftNotice": "Brouillon temporaire. Ce contenu ne constitue pas un conseil juridique et sera remplacé avant la publication.",
+      "collectionTitle": "Informations stockées",
+      "collectionBody": "Fluently stocke sur votre appareil vos préférences de langue, de voix, de rappels et de progression.",
+      "useTitle": "Comment nous les utilisons",
+      "useBody": "Ces réglages personnalisent l'interface, les réponses de pratique, la voix et les rappels quotidiens.",
+      "contactTitle": "Questions",
+      "contactBody": "Contactez l'éditeur de l'application pour toute question sur cette politique temporaire."
+    },
+    "info": {
+      "title": "Informations sur l'app",
+      "description": "Version et licences",
+      "sheetTitle": "À propos de Fluently",
+      "version": "Version {{version}}",
+      "licensesTitle": "Licences open source",
+      "licensesDescription": "Fluently utilise Expo, React Native, HeroUI Native, Drizzle et d'autres bibliothèques open source.",
+      "sourceTitle": "Code source",
+      "sourceDescription": "Un lien vers le dépôt public sera ajouté après la publication.",
+      "githubLink": "Fluently sur GitHub"
+    }
+  },
+  "questions": {
+    "import": {
+      "title": "Ajouter des questions",
+      "description": "Sélectionnez un fichier JSON pour ajouter des questions",
+      "invalidFileType": "Sélectionnez un fichier JSON.",
+      "invalidJson": "Le fichier sélectionné contient un JSON invalide.",
+      "invalidFormat": "Le fichier JSON a un format invalide. Vérifiez vos questions.",
+      "successTitle": "Importation terminée",
+      "successMessage": "{{imported}} question{{plural}} importée{{plural}}, {{skipped}} ignorée{{plural}}.",
+      "failureTitle": "Échec de l’importation",
+      "failureDescription": "Impossible d’importer les questions.",
+      "createError": "Impossible de créer la question",
+      "duplicateOption": "Option de réponse en double",
+      "correctOptionCount": "Chaque langue doit avoir exactement une bonne réponse."
+    }
+  },
+  "languages": {
+    "en": "Anglais",
+    "pt": "Portugais",
+    "es": "Espagnol",
+    "fr": "Français",
+    "de": "Allemand",
+    "it": "Italien"
+  },
+  "notFound": { "title": "Oups ! Introuvable", "action": "Aller à l'accueil" }
+}

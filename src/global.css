@@ -1,0 +1,80 @@
+@import "tailwindcss";
+@import "uniwind";
+
+@import "heroui-native/styles";
+
+/* End-user path: heroui-native lives in the project's node_modules, one
+   level up from this src/global.css file. */
+@source '../node_modules/heroui-native/lib';
+
+@layer theme {
+  @variant light {
+    --background: hsl(300 33.3% 97.1%);
+    --foreground: hsl(296 55.6% 21.2%);
+    --surface: hsl(300 33.3% 97.1%);
+    --surface-foreground: hsl(296 55.6% 21.2%);
+    --surface-secondary: hsl(314.7 61.6% 85.7%);
+    --surface-secondary-foreground: hsl(295.8 40.9% 34.5%);
+    --surface-tertiary: hsl(310.6 48.6% 93.1%);
+    --surface-tertiary-foreground: hsl(295.5 32.7% 40.2%);
+    --overlay: hsl(0 0% 100%);
+    --overlay-foreground: hsl(296 55.6% 21.2%);
+    --muted: hsl(295.5 32.7% 40.2%);
+    --default: hsl(314.7 61.6% 85.7%);
+    --default-foreground: hsl(295.8 40.9% 34.5%);
+    --accent: hsl(333.3 43% 46.1%);
+    --accent-foreground: hsl(0 0% 100%);
+    --field-background: hsl(0 0% 100%);
+    --field-foreground: hsl(296 55.6% 21.2%);
+    --field-placeholder: hsl(295.5 32.7% 40.2%);
+    --field-border: hsl(317.4 44.2% 83.1%);
+    --warning: hsl(43.1 73.6% 65.9%);
+    --warning-foreground: hsl(296 55.6% 21.2%);
+    --danger: hsl(357.7 43.7% 46.7%);
+    --danger-foreground: hsl(0 0% 100%);
+    --segment: hsl(314.7 61.6% 85.7%);
+    --segment-foreground: hsl(295.8 40.9% 34.5%);
+    --border: hsl(304.8 61% 83.9%);
+    --separator: hsl(304.8 61% 83.9%);
+    --focus: hsl(333.3 71.4% 50.6%);
+    --link: hsl(333.3 43% 46.1%);
+    --surface-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+    --overlay-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 2px 4px -1px rgb(0 0 0 / 0.1);
+    --field-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+  }
+
+  @variant dark {
+    --background: hsl(270 14.7% 13.3%);
+    --foreground: hsl(272.3 28.3% 82%);
+    --surface: hsl(270 13.6% 17.3%);
+    --surface-foreground: hsl(324.5 23.4% 81.6%);
+    --surface-secondary: hsl(273.8 15.1% 20.8%);
+    --surface-secondary-foreground: hsl(270 30.2% 83.1%);
+    --surface-tertiary: hsl(272.7 13.9% 15.5%);
+    --surface-tertiary-foreground: hsl(268.8 20.7% 76.3%);
+    --overlay: hsl(320 23.1% 5.1%);
+    --overlay-foreground: hsl(330 33.3% 95.5%);
+    --muted: hsl(268.8 20.7% 76.3%);
+    --default: hsl(273.8 15.1% 20.8%);
+    --default-foreground: hsl(270 30.2% 83.1%);
+    --accent: hsl(332 100% 32%);
+    --accent-foreground: hsl(329.4 59.5% 84.5%);
+    --field-background: hsl(312 8.8% 22.4%);
+    --field-foreground: hsl(324.5 23.4% 81.6%);
+    --field-placeholder: hsl(268.8 20.7% 76.3%);
+    --field-border: hsl(312 8.8% 22.4%);
+    --warning: hsl(30 80% 54.9%);
+    --warning-foreground: hsl(270 14.7% 13.3%);
+    --danger: hsl(350.6 50% 12.5%);
+    --danger-foreground: hsl(0 0% 100%);
+    --segment: hsl(272.1 20.3% 27.1%);
+    --segment-foreground: hsl(330 33.3% 95.5%);
+    --border: hsl(326.7 8.3% 21.4%);
+    --separator: hsl(326.7 8.3% 21.4%);
+    --focus: hsl(333.3 71.4% 50.6%);
+    --link: hsl(332 100% 32%);
+    --surface-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+    --overlay-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 2px 4px -1px rgb(0 0 0 / 0.1);
+    --field-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+  }
+}

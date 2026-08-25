@@ -1,0 +1,144 @@
+{
+  "tabs": { "learn": "Learn", "practice": "Practice", "settings": "Settings" },
+  "common": { "close": "Close" },
+  "accessibility": {
+    "fluentlyLogo": "Fluently logo",
+    "progressComplete": "{{percentage}}% complete"
+  },
+  "errors": { "unknown": "Unknown error" },
+  "onboarding": {
+    "welcome": {
+      "title": "Welcome to Fluently",
+      "description": "Build your language skills one question at a time.",
+      "action": "Get started"
+    },
+    "language": {
+      "title": "Choose your language",
+      "description": "Select the language you want to use in Fluently. You can change this later.",
+      "action": "Continue"
+    },
+    "ready": {
+      "title": "You’re all set",
+      "description": "Fluently is ready. Let’s start building your language habit.",
+      "action": "Start learning"
+    }
+  },
+  "home": {
+    "title": "Welcome back",
+    "description": "Continue where you left off.",
+    "progress": "{{completed}} of {{total}} complete",
+    "noQuestions": "No questions yet",
+    "progressDescription": "Complete your next practice session to keep building momentum.",
+    "continuePractice": "Continue practice"
+  },
+  "practice": {
+    "loadingTitle": "Loading question...",
+    "loadingDescription": "Preparing your next practice prompt.",
+    "completeTitle": "You are all caught up.",
+    "completeDescription": "There are no more questions to practice right now.",
+    "backToLearn": "Back to Learn",
+    "leave": "Leave practice",
+    "prompt": "What does '{{word}}' mean?",
+    "pronounce": "Pronounce {{word}}",
+    "correct": "Correct!",
+    "incorrect": "Not quite.",
+    "check": "Check",
+    "next": "Next",
+    "errorTitle": "Something went wrong",
+    "errorDescription": "We couldn't load your practice question. Please try again."
+  },
+  "settings": {
+    "general": "General Settings",
+    "notifications": {
+      "title": "Notification Preferences",
+      "description": "Practice reminders and daily prompts",
+      "dailyTitle": "Daily reminder",
+      "dailyDescription": "Get a reminder to practice at 9:00 AM.",
+      "dailyToggle": "Daily practice reminder",
+      "dailyTime": "Every day at 9:00 AM",
+      "channelName": "Daily reminders",
+      "reminderTitle": "Time to practice",
+      "reminderBody": "Keep your Fluently streak going.",
+      "permissionDeniedTitle": "Notifications are off",
+      "permissionDeniedDescription": "Allow notifications in your device settings to enable daily reminders.",
+      "scheduleErrorTitle": "Couldn't update reminder",
+      "scheduleErrorDescription": "Please try again."
+    },
+    "devices": {
+      "title": "Connected Devices",
+      "description": "Manage linked devices",
+      "comingSoonTitle": "Coming soon",
+      "comingSoonDescription": "This feature is not yet implemented."
+    },
+    "voice": {
+      "title": "Voice",
+      "selectPlaceholder": "Select a voice",
+      "listLabel": "Voice",
+      "loading": "Loading voices...",
+      "loadError": "Unable to load voices"
+    },
+    "language": { "title": "Language", "label": "Interface and practice language" },
+    "reset": { "title": "Reset Onboarding", "description": "Show the welcome flow again" },
+    "support": "Support & Others",
+    "help": {
+      "title": "Help Center",
+      "description": "Answers and support",
+      "sheetTitle": "How can we help?",
+      "sheetDescription": "Quick answers for using Fluently.",
+      "practiceQuestion": "How does practice work?",
+      "practiceAnswer": "Answer each question and confirm your choice. Correct answers are marked as complete.",
+      "reminderQuestion": "How do daily reminders work?",
+      "reminderAnswer": "Enable them in Notification Preferences to receive a local reminder every day at 9:00 AM.",
+      "languageQuestion": "How do I change my language?",
+      "languageAnswer": "Choose Language in Settings. It updates the interface and practice answers."
+    },
+    "terms": {
+      "title": "Terms & Privacy",
+      "description": "Terms of use and privacy policy",
+      "sheetTitle": "Terms & Privacy",
+      "draftNotice": "Temporary draft. This content is not legal advice and will be replaced before release.",
+      "collectionTitle": "Information we store",
+      "collectionBody": "Fluently stores your language, voice, reminder, and practice-progress preferences on your device.",
+      "useTitle": "How we use it",
+      "useBody": "These settings personalize the interface, practice answers, speech voice, and daily reminders.",
+      "contactTitle": "Questions",
+      "contactBody": "Contact the app publisher with questions about this temporary policy."
+    },
+    "info": {
+      "title": "App Info",
+      "description": "Version and licenses",
+      "sheetTitle": "About Fluently",
+      "version": "Version {{version}}",
+      "licensesTitle": "Open-source licenses",
+      "licensesDescription": "Fluently uses Expo, React Native, HeroUI Native, Drizzle, and other open-source libraries.",
+      "sourceTitle": "Source code",
+      "sourceDescription": "A public source repository link will be added after publication.",
+      "githubLink": "Fluently on GitHub"
+    }
+  },
+  "questions": {
+    "import": {
+      "title": "Add Questions",
+      "description": "Select a JSON file to add questions",
+      "invalidFileType": "Please select a JSON file.",
+      "invalidJson": "The selected file contains invalid JSON.",
+      "invalidFormat": "The JSON file has an invalid format. Please check your questions.",
+      "successTitle": "Import complete",
+      "successMessage": "{{imported}} question{{plural}} imported, {{skipped}} skipped.",
+      "failureTitle": "Import failed",
+      "failureDescription": "Could not import questions.",
+      "createError": "Failed to create question",
+      "duplicateOption": "Duplicate answer option",
+      "correctOptionCount": "Each language must have exactly one correct answer."
+    }
+  },
+  "languages": {
+    "en": "English",
+    "pt": "Portuguese",
+    "es": "Spanish",
+    "fr": "French",
+    "de": "German",
+    "it": "Italian"
+  },
+  "notFound": { "title": "Oops! Not Found", "action": "Go to Home Page" }
+}

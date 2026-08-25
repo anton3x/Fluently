@@ -1,0 +1,58 @@
+[
+  {
+    "type": "word",
+    "text": "resilient",
+    "phonetic": "/rɪˈzɪl.i.ənt/",
+    "cefrLevel": "B2",
+    "options": [
+      { "language": "pt", "text": "Resiliente", "isCorrect": true },
+      { "language": "pt", "text": "Frágil", "isCorrect": false },
+      { "language": "es", "text": "Resiliente", "isCorrect": true },
+      { "language": "es", "text": "Frágil", "isCorrect": false },
+      { "language": "fr", "text": "Résilient", "isCorrect": true },
+      { "language": "fr", "text": "Fragile", "isCorrect": false },
+      { "language": "de", "text": "Widerstandsfähig", "isCorrect": true },
+      { "language": "de", "text": "Zerbrechlich", "isCorrect": false },
+      { "language": "it", "text": "Resiliente", "isCorrect": true },
+      { "language": "it", "text": "Fragile", "isCorrect": false }
+    ]
+  },
+  {
+    "type": "sentence",
+    "text": "She improved her pronunciation with daily practice.",
+    "phonetic": "/ʃi ɪmˈpruːvd hɜːr prəˌnʌn.siˈeɪ.ʃən wɪð ˈdeɪ.li ˈpræk.tɪs/",
+    "cefrLevel": "B1",
+    "options": [
+      {
+        "language": "pt",
+        "text": "Ela melhorou a pronúncia com prática diária.",
+        "isCorrect": true
+      },
+      { "language": "pt", "text": "Ela esqueceu de praticar todos os dias.", "isCorrect": false },
+      {
+        "language": "es",
+        "text": "Mejoró su pronunciación con práctica diaria.",
+        "isCorrect": true
+      },
+      { "language": "es", "text": "Olvidó practicar todos los días.", "isCorrect": false },
+      {
+        "language": "fr",
+        "text": "Elle a amélioré sa prononciation avec une pratique quotidienne.",
+        "isCorrect": true
+      },
+      { "language": "fr", "text": "Elle a oublié de pratiquer chaque jour.", "isCorrect": false },
+      {
+        "language": "de",
+        "text": "Sie verbesserte ihre Aussprache durch tägliches Üben.",
+        "isCorrect": true
+      },
+      { "language": "de", "text": "Sie vergaß, jeden Tag zu üben.", "isCorrect": false },
+      {
+        "language": "it",
+        "text": "Ha migliorato la pronuncia con la pratica quotidiana.",
+        "isCorrect": true
+      },
+      { "language": "it", "text": "Ha dimenticato di esercitarsi ogni giorno.", "isCorrect": false }
+    ]
+  }
+]

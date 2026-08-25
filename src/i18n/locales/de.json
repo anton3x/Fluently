@@ -1,0 +1,147 @@
+{
+  "tabs": { "learn": "Lernen", "practice": "Üben", "settings": "Einstellungen" },
+  "common": { "close": "Schließen" },
+  "accessibility": {
+    "fluentlyLogo": "Fluently-Logo",
+    "progressComplete": "{{percentage}}% abgeschlossen"
+  },
+  "errors": { "unknown": "Unbekannter Fehler" },
+  "onboarding": {
+    "welcome": {
+      "title": "Willkommen bei Fluently",
+      "description": "Baue deine Sprachkenntnisse mit jeder Frage weiter aus.",
+      "action": "Loslegen"
+    },
+    "language": {
+      "title": "Wähle deine Sprache",
+      "description": "Wähle die Sprache, die du in Fluently verwenden möchtest. Du kannst dies später ändern.",
+      "action": "Weiter"
+    },
+    "ready": {
+      "title": "Alles ist bereit",
+      "description": "Fluently ist bereit. Beginnen wir mit deiner Sprachlerngewohnheit.",
+      "action": "Lernen starten"
+    }
+  },
+  "home": {
+    "title": "Willkommen zurück",
+    "description": "Mach dort weiter, wo du aufgehört hast.",
+    "progress": "{{completed}} von {{total}} abgeschlossen",
+    "noQuestions": "Noch keine Fragen",
+    "progressDescription": "Schließe deine nächste Übung ab, um weiter voranzukommen.",
+    "continuePractice": "Übung fortsetzen"
+  },
+  "practice": {
+    "loadingTitle": "Frage wird geladen...",
+    "loadingDescription": "Deine nächste Übung wird vorbereitet.",
+    "completeTitle": "Du bist auf dem neuesten Stand.",
+    "completeDescription": "Im Moment gibt es keine weiteren Fragen zum Üben.",
+    "backToLearn": "Zurück zu Lernen",
+    "leave": "Übung verlassen",
+    "prompt": "Was bedeutet '{{word}}'?",
+    "pronounce": "Aussprache von {{word}} anhören",
+    "correct": "Richtig!",
+    "incorrect": "Nicht ganz.",
+    "check": "Prüfen",
+    "next": "Weiter",
+    "errorTitle": "Etwas ist schiefgelaufen",
+    "errorDescription": "Deine Übungsfrage konnte nicht geladen werden. Bitte versuche es erneut."
+  },
+  "settings": {
+    "general": "Allgemeine Einstellungen",
+    "notifications": {
+      "title": "Benachrichtigungseinstellungen",
+      "description": "Übungserinnerungen und tägliche Hinweise",
+      "dailyTitle": "Tägliche Erinnerung",
+      "dailyDescription": "Erhalte um 9:00 Uhr eine Erinnerung zum Üben.",
+      "dailyToggle": "Tägliche Übungserinnerung",
+      "dailyTime": "Jeden Tag um 9:00 Uhr",
+      "channelName": "Tägliche Erinnerungen",
+      "reminderTitle": "Zeit zum Üben",
+      "reminderBody": "Halte deine Fluently-Serie am Laufen.",
+      "permissionDeniedTitle": "Benachrichtigungen sind deaktiviert",
+      "permissionDeniedDescription": "Erlaube Benachrichtigungen in den Geräteeinstellungen, um tägliche Erinnerungen zu aktivieren.",
+      "scheduleErrorTitle": "Erinnerung konnte nicht aktualisiert werden",
+      "scheduleErrorDescription": "Bitte versuche es erneut."
+    },
+    "devices": {
+      "title": "Verbundene Geräte",
+      "description": "Verknüpfte Geräte verwalten",
+      "comingSoonTitle": "Demnächst verfügbar",
+      "comingSoonDescription": "Diese Funktion ist noch nicht implementiert."
+    },
+    "voice": {
+      "title": "Stimme",
+      "selectPlaceholder": "Stimme auswählen",
+      "listLabel": "Stimme",
+      "loading": "Stimmen werden geladen ...",
+      "loadError": "Stimmen konnten nicht geladen werden"
+    },
+    "language": { "title": "Sprache", "label": "Sprache für Oberfläche und Übungen" },
+    "reset": {
+      "title": "Einführung zurücksetzen",
+      "description": "Willkommensablauf erneut anzeigen"
+    },
+    "support": "Support und weiteres",
+    "help": {
+      "title": "Hilfe",
+      "description": "Antworten und Support",
+      "sheetTitle": "Wie können wir helfen?",
+      "sheetDescription": "Schnelle Antworten zur Nutzung von Fluently.",
+      "practiceQuestion": "Wie funktioniert das Üben?",
+      "practiceAnswer": "Beantworte jede Frage und bestätige deine Auswahl. Richtige Antworten werden als abgeschlossen markiert.",
+      "reminderQuestion": "Wie funktionieren tägliche Erinnerungen?",
+      "reminderAnswer": "Aktiviere sie in den Benachrichtigungseinstellungen, um jeden Tag um 9:00 Uhr eine lokale Erinnerung zu erhalten.",
+      "languageQuestion": "Wie ändere ich meine Sprache?",
+      "languageAnswer": "Wähle Sprache in den Einstellungen. Dadurch werden Oberfläche und Übungsantworten aktualisiert."
+    },
+    "terms": {
+      "title": "Nutzungsbedingungen und Datenschutz",
+      "description": "Nutzungsbedingungen und Datenschutzerklärung",
+      "sheetTitle": "Nutzungsbedingungen und Datenschutz",
+      "draftNotice": "Vorläufiger Entwurf. Dieser Inhalt ist keine Rechtsberatung und wird vor der Veröffentlichung ersetzt.",
+      "collectionTitle": "Gespeicherte Informationen",
+      "collectionBody": "Fluently speichert Sprach-, Stimm-, Erinnerungs- und Übungsfortschrittspräferenzen auf deinem Gerät.",
+      "useTitle": "Wie wir sie verwenden",
+      "useBody": "Diese Einstellungen personalisieren die Oberfläche, Übungsantworten, Stimme und tägliche Erinnerungen.",
+      "contactTitle": "Fragen",
+      "contactBody": "Wende dich bei Fragen zu dieser vorläufigen Richtlinie an den Herausgeber der App."
+    },
+    "info": {
+      "title": "App-Informationen",
+      "description": "Version und Lizenzen",
+      "sheetTitle": "Über Fluently",
+      "version": "Version {{version}}",
+      "licensesTitle": "Open-Source-Lizenzen",
+      "licensesDescription": "Fluently verwendet Expo, React Native, HeroUI Native, Drizzle und weitere Open-Source-Bibliotheken.",
+      "sourceTitle": "Quellcode",
+      "sourceDescription": "Ein Link zum öffentlichen Repository wird nach der Veröffentlichung hinzugefügt.",
+      "githubLink": "Fluently auf GitHub"
+    }
+  },
+  "questions": {
+    "import": {
+      "title": "Fragen hinzufügen",
+      "description": "Wähle eine JSON-Datei aus, um Fragen hinzuzufügen",
+      "invalidFileType": "Bitte wähle eine JSON-Datei aus.",
+      "invalidJson": "Die ausgewählte Datei enthält ungültiges JSON.",
+      "invalidFormat": "Die JSON-Datei hat ein ungültiges Format. Bitte überprüfe deine Fragen.",
+      "successTitle": "Import abgeschlossen",
+      "successMessage": "{{imported}} Frage{{plural}} importiert, {{skipped}} übersprungen.",
+      "failureTitle": "Import fehlgeschlagen",
+      "failureDescription": "Fragen konnten nicht importiert werden.",
+      "createError": "Frage konnte nicht erstellt werden",
+      "duplicateOption": "Doppelte Antwortoption",
+      "correctOptionCount": "Jede Sprache muss genau eine richtige Antwort haben."
+    }
+  },
+  "languages": {
+    "en": "Englisch",
+    "pt": "Portugiesisch",
+    "es": "Spanisch",
+    "fr": "Französisch",
+    "de": "Deutsch",
+    "it": "Italienisch"
+  },
+  "notFound": { "title": "Ups! Nicht gefunden", "action": "Zur Startseite" }
+}

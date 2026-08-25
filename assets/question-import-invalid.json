@@ -1,0 +1,13 @@
+[
+  {
+    "type": "word",
+    "text": "invalid fixture",
+    "phonetic": "/ɪnˈvæl.ɪd/",
+    "cefrLevel": "A1",
+    "options": [
+      { "language": "pt", "text": "Inválido", "isCorrect": false },
+      { "language": "pt", "text": "Errado", "isCorrect": false },
+      { "language": "en", "text": "Invalid", "isCorrect": true }
+    ]
+  }
+]
