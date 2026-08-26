@@ -1,6 +1,6 @@
 import { Ionicons } from "@react-native-vector-icons/ionicons";
 import { useRouter } from "expo-router";
-import { Button, Label, Radio, RadioGroup, Spinner, Typography } from "heroui-native";
+import { Button, Label, Radio, RadioGroup, Menu, Spinner, Typography } from "heroui-native";
 import { useMemo, useState } from "react";
 import { ScrollView, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -27,7 +27,13 @@ export default function PracticeScreen() {
   const { t } = useTranslation();
 
   const { data: progress } = useProgress();
-  const { data: question, isPending: isLoadingQuestion, isError } = useNextQuestion();
+  const {
+    data: question,
+    isPending: isLoadingQuestion,
+    isError,
+    isRefetching,
+    refetch,
+  } = useNextQuestion();
   const { mutateAsync: recordAnswer, isPending: isSavingAnswer } = useRecordAnswer();
 
   const questionOptions = useMemo(
@@ -35,16 +41,16 @@ export default function PracticeScreen() {
     [question?.options, language]
   );
 
-  if (!question) {
-    return <QuestionEmptyState />;
+  if (isLoadingQuestion) {
+    return <QuestionLoadingState />;
   }
 
   if (isError) {
     return <QuestionErrorState />;
   }
 
-  if (isLoadingQuestion) {
-    return <QuestionLoadingState />;
+  if (!question) {
+    return <QuestionEmptyState />;
   }
 
   function selectAnswer(value: string) {
@@ -62,7 +68,7 @@ export default function PracticeScreen() {
   function handleCheck(value: string | undefined) {
     if (!value) return;
     setIsChecked(true);
-    let isCorrect = value === questionOptions.find((option) => option.isCorrect)?.text;
+    const isCorrect = value === questionOptions.find((option) => option.isCorrect)?.text;
     if (isCorrect) {
       Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
     } else {
@@ -87,24 +93,39 @@ export default function PracticeScreen() {
     setIsCorrect(false);
   }
 
+  async function handleGetAnotherQuestion() {
+    Speech.stop();
+    setAnswer(undefined);
+    setIsChecked(false);
+    setIsCorrect(false);
+    await refetch();
+  }
+
   return (
     <View
       className="flex-1 bg-background"
       style={{ paddingTop: insets.top + 8, paddingBottom: insets.bottom }}
     >
       <View className="flex-row items-center gap-3 px-5">
-        <Button
-          isIconOnly
-          size="sm"
-          variant="ghost"
-          accessibilityLabel={t("practice.leave")}
-          onPress={() => {
-            Speech.stop();
-            router.navigate("/");
-          }}
-        >
-          <Ionicons name="close" size={22} color="#3e4a37" />
-        </Button>
+        <Menu>
+          <Menu.Trigger asChild>
+            <Button isIconOnly size="sm" variant="ghost" accessibilityLabel={t("practice.menu")}>
+              <Ionicons name="ellipsis-horizontal" size={22} color="#3e4a37" />
+            </Button>
+          </Menu.Trigger>
+          <Menu.Portal>
+            <Menu.Overlay />
+            <Menu.Content presentation="popover" width={250}>
+              <Menu.Label className="mb-1">{t("practice.questions")}</Menu.Label>
+              <Menu.Item
+                isDisabled={isRefetching || isSavingAnswer}
+                onPress={handleGetAnotherQuestion}
+              >
+                <Menu.ItemTitle>{t("practice.randomQuestion")}</Menu.ItemTitle>
+              </Menu.Item>
+            </Menu.Content>
+          </Menu.Portal>
+        </Menu>
 
         <View className="h-3 flex-1 overflow-hidden rounded-full bg-default">
           <View
