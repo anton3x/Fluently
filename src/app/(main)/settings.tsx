@@ -42,13 +42,13 @@ export default function SettingsTab() {
   const voiceId = useSettingsStore((state) => state.voiceId);
   const setVoiceId = useSettingsStore((state) => state.setVoiceId);
 
-  const { voices, loadVoices, isLoading } = useVoices();
+  const { data: voices, isLoading } = useVoices();
 
   const isDailyReminderEnabled = useSettingsStore((state) => state.dailyReminderEnabled);
   const setDailyReminderEnabled = useSettingsStore((state) => state.setDailyReminderEnabled);
   const [isSavingDailyReminder, setIsSavingDailyReminder] = useState(false);
 
-  const voiceOptions = voices.map((voice) => ({
+  const voiceOptions = voices?.map((voice) => ({
     value: voice.identifier,
     label: voice.name,
   }));
@@ -167,13 +167,12 @@ export default function SettingsTab() {
         </ListGroup.Item>
         <Separator className="mx-4" />
         <Select
-          value={voiceOptions.find((option) => option.value === voiceId)}
+          value={voiceOptions?.find((option) => option.value === voiceId)}
           onValueChange={(selection) => {
             if (selection) {
               setVoiceId(selection.value);
             }
           }}
-          onOpenChange={loadVoices}
           presentation="bottom-sheet"
         >
           <Select.Trigger variant="unstyled" asChild>
@@ -186,7 +185,7 @@ export default function SettingsTab() {
                 <ListGroup.ItemTitle>{t("settings.voice.title")}</ListGroup.ItemTitle>
 
                 <ListGroup.ItemDescription>
-                  {voiceOptions.find((option) => option.value === voiceId)?.label ??
+                  {voiceOptions?.find((option) => option.value === voiceId)?.label ??
                     t("settings.voice.selectPlaceholder")}
                 </ListGroup.ItemDescription>
               </ListGroup.ItemContent>
@@ -204,7 +203,7 @@ export default function SettingsTab() {
               {isLoading ? (
                 <Select.Item value="loading" label={t("settings.voice.loading")} disabled />
               ) : (
-                voiceOptions.map((option) => <Select.Item key={option.value} {...option} />)
+                voiceOptions?.map((option) => <Select.Item key={option.value} {...option} />)
               )}
             </Select.Content>
           </Select.Portal>

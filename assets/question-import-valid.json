@@ -7,14 +7,24 @@
     "options": [
       { "language": "pt", "text": "Resiliente", "isCorrect": true },
       { "language": "pt", "text": "Frágil", "isCorrect": false },
+      { "language": "pt", "text": "Vulnerável", "isCorrect": false },
+      { "language": "pt", "text": "Instável", "isCorrect": false },
       { "language": "es", "text": "Resiliente", "isCorrect": true },
       { "language": "es", "text": "Frágil", "isCorrect": false },
+      { "language": "es", "text": "Vulnerable", "isCorrect": false },
+      { "language": "es", "text": "Inestable", "isCorrect": false },
       { "language": "fr", "text": "Résilient", "isCorrect": true },
       { "language": "fr", "text": "Fragile", "isCorrect": false },
+      { "language": "fr", "text": "Vulnérable", "isCorrect": false },
+      { "language": "fr", "text": "Instable", "isCorrect": false },
       { "language": "de", "text": "Widerstandsfähig", "isCorrect": true },
       { "language": "de", "text": "Zerbrechlich", "isCorrect": false },
+      { "language": "de", "text": "Verletzlich", "isCorrect": false },
+      { "language": "de", "text": "Instabil", "isCorrect": false },
       { "language": "it", "text": "Resiliente", "isCorrect": true },
-      { "language": "it", "text": "Fragile", "isCorrect": false }
+      { "language": "it", "text": "Fragile", "isCorrect": false },
+      { "language": "it", "text": "Vulnerabile", "isCorrect": false },
+      { "language": "it", "text": "Instabile", "isCorrect": false }
     ]
   },
   {
@@ -29,30 +39,44 @@
         "isCorrect": true
       },
       { "language": "pt", "text": "Ela esqueceu de praticar todos os dias.", "isCorrect": false },
+      { "language": "pt", "text": "Ela evitou praticar.", "isCorrect": false },
+      { "language": "pt", "text": "Ela praticou uma vez.", "isCorrect": false },
       {
         "language": "es",
         "text": "Mejoró su pronunciación con práctica diaria.",
         "isCorrect": true
       },
       { "language": "es", "text": "Olvidó practicar todos los días.", "isCorrect": false },
+      { "language": "es", "text": "Evitó practicar.", "isCorrect": false },
+      { "language": "es", "text": "Practicó una vez.", "isCorrect": false },
       {
         "language": "fr",
         "text": "Elle a amélioré sa prononciation avec une pratique quotidienne.",
         "isCorrect": true
       },
       { "language": "fr", "text": "Elle a oublié de pratiquer chaque jour.", "isCorrect": false },
+      { "language": "fr", "text": "Elle a évité de pratiquer.", "isCorrect": false },
+      { "language": "fr", "text": "Elle a pratiqué une fois.", "isCorrect": false },
       {
         "language": "de",
         "text": "Sie verbesserte ihre Aussprache durch tägliches Üben.",
         "isCorrect": true
       },
       { "language": "de", "text": "Sie vergaß, jeden Tag zu üben.", "isCorrect": false },
+      { "language": "de", "text": "Sie vermied das Üben.", "isCorrect": false },
+      { "language": "de", "text": "Sie übte einmal.", "isCorrect": false },
       {
         "language": "it",
         "text": "Ha migliorato la pronuncia con la pratica quotidiana.",
         "isCorrect": true
       },
-      { "language": "it", "text": "Ha dimenticato di esercitarsi ogni giorno.", "isCorrect": false }
+      {
+        "language": "it",
+        "text": "Ha dimenticato di esercitarsi ogni giorno.",
+        "isCorrect": false
+      },
+      { "language": "it", "text": "Ha evitato di esercitarsi.", "isCorrect": false },
+      { "language": "it", "text": "Si è esercitata una volta.", "isCorrect": false }
     ]
   }
 ]
