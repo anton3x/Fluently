@@ -14,7 +14,8 @@
     "typecheck": "tsc --noEmit",
     "db:generate": "drizzle-kit generate",
     "db:check": "drizzle-kit check",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "test:ci": "jest --ci --runInBand --coverage"
   },
   "jest": {
     "preset": "jest-expo",
