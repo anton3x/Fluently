@@ -1,8 +1,11 @@
-name: React Native CI/CD
+name: CI/CD Workflow
 
 on:
   push:
-    branches: [main]
+      branches:
+        - develop
+        - main
+  pull_request:
   workflow_dispatch:
 
 env:
@@ -38,6 +41,7 @@ jobs:
   build-and-release:
     needs: test
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -92,6 +96,7 @@ jobs:
           body_path: changelog.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Upload build artifacts to GitHub
         uses: actions/upload-artifact@v4
         with:
