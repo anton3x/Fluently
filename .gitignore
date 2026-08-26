@@ -44,3 +44,5 @@ yarn-error.*
 /android
 # heroui-agents-md
 .heroui-docs/
+
+/coverage
