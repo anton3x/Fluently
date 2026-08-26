@@ -1,5 +1,4 @@
 import { Ionicons } from "@react-native-vector-icons/ionicons";
-import { useRouter } from "expo-router";
 import { Button, Label, Radio, RadioGroup, Menu, Spinner, Typography } from "heroui-native";
 import { useMemo, useState } from "react";
 import { ScrollView, View } from "react-native";
@@ -17,7 +16,6 @@ import { useProgress } from "@/features/questions/hooks/use-progress";
 
 export default function PracticeScreen() {
   const insets = useSafeAreaInsets();
-  const router = useRouter();
   const [answer, setAnswer] = useState<string>();
   const [isChecked, setIsChecked] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
