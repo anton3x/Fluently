@@ -2,7 +2,7 @@ import { Database } from "@/db";
 import { questionOptions, questionProgress, questions } from "@/db/schema";
 import { QuestionWithOptions } from "@/types/question";
 import { Result } from "@/types/result";
-import { eq, and, gt } from "drizzle-orm";
+import { eq, and, gt, sql } from "drizzle-orm";
 
 export interface IQuestionRepository {
   getQuestionById(id: string): Promise<Result<QuestionWithOptions>>;
@@ -51,6 +51,7 @@ export class QuestionRepository implements IQuestionRepository {
               )
             )
         ),
+      orderBy: sql`RANDOM()`,
     });
 
     if (!question) {
