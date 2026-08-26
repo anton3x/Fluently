@@ -1,0 +1,101 @@
+name: React Native CI/CD
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+
+permissions:
+  contents: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          no-cache: false
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Run TypeScript check
+        run: bun run typecheck
+
+      - name: Run ESLint
+        run: bun run lint
+
+      - name: Run Prettier check
+        run: bun run format:check
+
+  build-and-release:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          no-cache: false
+
+      - name: Setup EAS
+        uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Verify EAS CLI installation
+        run: |
+          echo "EAS CLI version:"
+          eas --version
+
+      - name: Build Production APK
+        run: eas build --platform android --profile production --local --non-interactive --output=./app-prod.apk
+        env:
+          NODE_ENV: production
+
+      - name: Generate build information
+        id: build-info
+        run: |
+          VERSION=$(node -p "require('./app.json').expo.version")
+          BUILD_NUMBER=$(date +%Y%m%d%H%M)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "build_number=$BUILD_NUMBER" >> $GITHUB_OUTPUT
+          # Generate changelog from commit messages since last tag
+          if git describe --tags --abbrev=0 > /dev/null 2>&1; then
+            LAST_TAG=$(git describe --tags --abbrev=0)
+            git log $LAST_TAG..HEAD --pretty=format:"- %s" > changelog.md
+          else
+            git log --pretty=format:"- %s" -n 10 > changelog.md
+          fi
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          draft: true
+          name: "v${{ steps.build-info.outputs.version }}-${{ steps.build-info.outputs.build_number }}"
+          tag_name: "v${{ steps.build-info.outputs.version }}-${{ steps.build-info.outputs.build_number }}"
+          files: |
+            ./app-prod.apk
+          body_path: changelog.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload build artifacts to GitHub
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-builds
+          path: |
+            ./app-prod.apk
+          retention-days: 7

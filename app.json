@@ -8,14 +8,18 @@
     "scheme": "heroui-native-app",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "CFBundleLocalizations": ["en", "pt", "es", "fr", "de", "it"]
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.anton3x.fluently"
     },
     "plugins": [
       "expo-router",
@@ -45,6 +49,13 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "f8c17785-2494-4f4f-88be-3b794f289f6a"
+      }
+    },
+    "owner": "anton3x"
   }
 }

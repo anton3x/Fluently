@@ -436,7 +436,7 @@ Sleek uses [Iconify](https://iconify.design) icons in the format `prefix:name` (
 
 When implementing icons:
 
-1. **Check if the project already has an icon system** that supports the same sets Sleek uses (Solar, Hugeicons, Material Symbols, MDI). If so, use it. Note: `@expo/vector-icons` does **not** support these sets — do not use it as a substitute.
+1. **Check if the project already has an icon system** that supports the same sets Sleek uses (Solar, Hugeicons, Material Symbols, MDI). If so, use it.
 2. **Otherwise, fetch the SVGs from the Iconify API and embed them in the code:**
 
    ```

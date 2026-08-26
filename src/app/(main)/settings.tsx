@@ -12,7 +12,7 @@ import {
   useThemeColor,
   useToast,
 } from "heroui-native";
-import { Text, ScrollView, View } from "react-native";
+import { Text, ScrollView, View, Linking } from "react-native";
 import Constants from "expo-constants";
 import { LinearGradient } from "expo-linear-gradient";
 import { BottomSheetScrollView } from "@gorhom/bottom-sheet";
@@ -24,7 +24,6 @@ import { useVoices } from "@/features/questions/hooks/use-voices";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { dailyReminderService } from "@/features/notifications/services/daily-reminder-service";
 import QuestionUpload from "@/features/questions/components/question-upload";
-import { Linking } from "react-native";
 
 const StyledIonicons = withUniwind(Ionicons);
 

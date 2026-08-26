@@ -250,11 +250,11 @@ export default function HomeScreen() {
 
 ## Using Vector Icons
 
-If you must use @expo/vector-icons instead of SF Symbols:
+If you must use @react-native-vector-icons instead of SF Symbols:
 
 ```tsx
 import { NativeTabs } from "expo-router/unstable-native-tabs";
-import Ionicons from "@expo/vector-icons/Ionicons";
+import Ionicons from "@react-native-vector-icons/Ionicons";
 
 <NativeTabs.Trigger name="home">
   <NativeTabs.Trigger.VectorIcon vector={Ionicons} name="home" />
