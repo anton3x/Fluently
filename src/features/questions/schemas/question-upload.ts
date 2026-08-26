@@ -16,9 +16,10 @@ export const questionImportSchema = z
     text: z.string().trim().min(1),
     phonetic: z.string().trim().min(1),
     cefrLevel: cefrLevelSchema,
-    options: z.array(questionOptionImportSchema).min(4),
+    options: z.array(questionOptionImportSchema).length(languageSchema.options.length * 4),
   })
   .superRefine(({ options }, context) => {
+    const optionsByLanguage = new Map<string, number>();
     const correctByLanguage = new Map<string, number>();
     const optionKeys = new Set<string>();
 
@@ -34,14 +35,23 @@ export const questionImportSchema = z
       }
 
       optionKeys.add(optionKey);
+      optionsByLanguage.set(option.language, (optionsByLanguage.get(option.language) ?? 0) + 1);
       correctByLanguage.set(
         option.language,
         (correctByLanguage.get(option.language) ?? 0) + Number(option.isCorrect)
       );
     }
 
-    for (const correctCount of correctByLanguage.values()) {
-      if (correctCount !== 1) {
+    for (const language of languageSchema.options) {
+      if (optionsByLanguage.get(language) !== 4) {
+        context.addIssue({
+          code: "custom",
+          message: "questions.import.optionCount",
+          path: ["options"],
+        });
+      }
+
+      if (correctByLanguage.get(language) !== 1) {
         context.addIssue({
           code: "custom",
           message: "questions.import.correctOptionCount",
