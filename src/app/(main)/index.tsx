@@ -149,7 +149,9 @@ export default function PracticeScreen() {
                 isDisabled={isRefetching || isSavingAnswer}
                 onPress={handleGetAnotherQuestion}
               >
-                <Menu.ItemTitle>{isRefetching || isSavingAnswer ? <Spinner /> : t("practice.randomQuestion")}</Menu.ItemTitle>
+                <Menu.ItemTitle>
+                  {isRefetching || isSavingAnswer ? <Spinner /> : t("practice.randomQuestion")}
+                </Menu.ItemTitle>
               </Menu.Item>
               <Menu.Item
                 onPress={() => {
