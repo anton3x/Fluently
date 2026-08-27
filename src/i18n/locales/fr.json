@@ -48,7 +48,8 @@
     "check": "Vérifier",
     "next": "Suivant",
     "errorTitle": "Un problème est survenu",
-    "errorDescription": "Nous n'avons pas pu charger votre question de pratique. Réessayez."
+    "errorDescription": "Nous n'avons pas pu charger votre question de pratique. Réessayez.",
+    "openQuestionList": "Ouvrir la liste des questions"
   },
   "settings": {
     "general": "Réglages généraux",
@@ -120,6 +121,10 @@
     }
   },
   "questions": {
+    "title": "Questions",
+    "selectDescription": "{{count}} questions disponibles",
+    "empty": "Pas encore de questions",
+    "searchPlaceholder": "Rechercher des questions...",
     "import": {
       "title": "Ajouter des questions",
       "description": "Sélectionnez un fichier JSON pour ajouter des questions",

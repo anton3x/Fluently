@@ -8,5 +8,6 @@ export function useVoices() {
       const voices = await Speech.getAvailableVoicesAsync();
       return voices;
     },
+    staleTime: 5 * 60 * 1000,
   });
 }

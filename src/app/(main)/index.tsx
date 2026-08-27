@@ -13,6 +13,18 @@ import { QuestionEmptyState } from "@/features/questions/components/question-emp
 import { QuestionLoadingState } from "@/features/questions/components/question-loading-state";
 import { QuestionErrorState } from "@/features/questions/components/question-error-state";
 import { useProgress } from "@/features/questions/hooks/use-progress";
+import QuestionsBottomSheet from "@/features/questions/components/question-list";
+import { useQuestions } from "@/features/questions/hooks/use-questions";
+import { useQuestion } from "@/features/questions/hooks/use-question";
+
+function shuffle<T>(array: T[]): T[] {
+  const result = [...array];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
 
 export default function PracticeScreen() {
   const insets = useSafeAreaInsets();
@@ -20,26 +32,40 @@ export default function PracticeScreen() {
   const [isChecked, setIsChecked] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
   const voiceId = useSettingsStore((state) => state.voiceId);
-
+  const [isQuestionListOpen, setIsQuestionListOpen] = useState(false);
+  const [selectedQuestionId, setSelectedQuestionId] = useState<string>();
   const language = useSettingsStore((state) => state.language);
   const { t } = useTranslation();
 
+  const { data: selectedQuestion, isPending: isLoadingSelectedQuestion } =
+    useQuestion(selectedQuestionId);
+
   const { data: progress } = useProgress();
   const {
-    data: question,
+    data: nextQuestion,
     isPending: isLoadingQuestion,
     isError,
     isRefetching,
     refetch,
   } = useNextQuestion();
+  const { data: questions, isPending: isLoadingQuestions } = useQuestions();
   const { mutateAsync: recordAnswer, isPending: isSavingAnswer } = useRecordAnswer();
+
+  const question = selectedQuestionId ? selectedQuestion : nextQuestion;
+
+  const isLoading =
+    isLoadingQuestion ||
+    isLoadingQuestions ||
+    (selectedQuestionId ? isLoadingSelectedQuestion : false);
 
   const questionOptions = useMemo(
     () => (question?.options ?? []).filter((option) => option.language === language),
     [question?.options, language]
   );
 
-  if (isLoadingQuestion) {
+  const shuffledOptions = useMemo(() => shuffle(questionOptions), [questionOptions]);
+
+  if (isLoading) {
     return <QuestionLoadingState />;
   }
 
@@ -75,7 +101,6 @@ export default function PracticeScreen() {
     setIsCorrect(isCorrect);
     return isCorrect;
   }
-
   async function handleNext() {
     if (!question) return;
 
@@ -86,16 +111,21 @@ export default function PracticeScreen() {
       isCorrect,
     });
 
+    setSelectedQuestionId(undefined);
     setAnswer(undefined);
     setIsChecked(false);
     setIsCorrect(false);
-  }
 
+    await refetch();
+  }
   async function handleGetAnotherQuestion() {
     Speech.stop();
+
+    setSelectedQuestionId(undefined);
     setAnswer(undefined);
     setIsChecked(false);
     setIsCorrect(false);
+
     await refetch();
   }
 
@@ -119,7 +149,14 @@ export default function PracticeScreen() {
                 isDisabled={isRefetching || isSavingAnswer}
                 onPress={handleGetAnotherQuestion}
               >
-                <Menu.ItemTitle>{t("practice.randomQuestion")}</Menu.ItemTitle>
+                <Menu.ItemTitle>{isRefetching || isSavingAnswer ? <Spinner /> : t("practice.randomQuestion")}</Menu.ItemTitle>
+              </Menu.Item>
+              <Menu.Item
+                onPress={() => {
+                  setIsQuestionListOpen(true);
+                }}
+              >
+                <Menu.ItemTitle>{t("practice.openQuestionList")}</Menu.ItemTitle>
               </Menu.Item>
             </Menu.Content>
           </Menu.Portal>
@@ -162,7 +199,7 @@ export default function PracticeScreen() {
           </View>
 
           <RadioGroup value={answer} onValueChange={selectAnswer} className="mt-7 gap-3">
-            {questionOptions.map((option) => (
+            {shuffledOptions.map((option) => (
               <RadioGroup.Item
                 key={option.id}
                 value={option.text}
@@ -200,6 +237,22 @@ export default function PracticeScreen() {
           </View>
         </View>
       </ScrollView>
+      <QuestionsBottomSheet
+        isOpen={isQuestionListOpen}
+        onOpenChange={setIsQuestionListOpen}
+        questions={!questions ? [] : questions}
+        onSelect={(selectedQuestion) => {
+          Speech.stop();
+
+          setSelectedQuestionId(selectedQuestion.id);
+
+          setAnswer(undefined);
+          setIsChecked(false);
+          setIsCorrect(false);
+
+          setIsQuestionListOpen(false);
+        }}
+      ></QuestionsBottomSheet>
     </View>
   );
 }

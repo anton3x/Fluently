@@ -48,7 +48,8 @@
     "check": "Prüfen",
     "next": "Weiter",
     "errorTitle": "Etwas ist schiefgelaufen",
-    "errorDescription": "Deine Übungsfrage konnte nicht geladen werden. Bitte versuche es erneut."
+    "errorDescription": "Deine Übungsfrage konnte nicht geladen werden. Bitte versuche es erneut.",
+    "openQuestionList": "Fragenliste öffnen"
   },
   "settings": {
     "general": "Allgemeine Einstellungen",
@@ -123,6 +124,10 @@
     }
   },
   "questions": {
+    "title": "Fragen",
+    "selectDescription": "{{count}} Fragen verfügbar",
+    "empty": "Noch keine Fragen",
+    "searchPlaceholder": "Fragen suchen...",
     "import": {
       "title": "Fragen hinzufügen",
       "description": "Wähle eine JSON-Datei aus, um Fragen hinzuzufügen",
