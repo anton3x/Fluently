@@ -48,7 +48,8 @@
     "check": "Check",
     "next": "Next",
     "errorTitle": "Something went wrong",
-    "errorDescription": "We couldn't load your practice question. Please try again."
+    "errorDescription": "We couldn't load your practice question. Please try again.",
+    "openQuestionList": "Open Question List"
   },
   "settings": {
     "general": "General Settings",
@@ -120,6 +121,10 @@
     }
   },
   "questions": {
+    "title": "Questions",
+    "selectDescription": "{{count}} questions available",
+    "empty": "No questions yet",
+    "searchPlaceholder": "Search questions...",
     "import": {
       "title": "Add Questions",
       "description": "Select a JSON file to add questions",

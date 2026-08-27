@@ -48,7 +48,8 @@
     "check": "Verifica",
     "next": "Avanti",
     "errorTitle": "Qualcosa è andato storto",
-    "errorDescription": "Non è stato possibile caricare la tua domanda di pratica. Riprova."
+    "errorDescription": "Non è stato possibile caricare la tua domanda di pratica. Riprova.",
+    "openQuestionList": "Apri elenco domande"
   },
   "settings": {
     "general": "Impostazioni generali",
@@ -120,6 +121,10 @@
     }
   },
   "questions": {
+    "title": "Domande",
+    "selectDescription": "{{count}} domande disponibili",
+    "empty": "Ancora nessuna domanda",
+    "searchPlaceholder": "Cerca domande...",
     "import": {
       "title": "Aggiungi domande",
       "description": "Seleziona un file JSON per aggiungere domande",

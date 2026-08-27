@@ -11,6 +11,8 @@ export interface IQuestionRepository {
 
   getDueQuestions(): Promise<Result<QuestionWithOptions[]>>;
 
+  getQuestions(): Promise<Result<QuestionWithOptions[]>>;
+
   createQuestion(question: QuestionWithOptions): Promise<Result<QuestionWithOptions>>;
 
   createQuestions(data: QuestionWithOptions[]): Promise<Result<QuestionWithOptions[]>>;
@@ -18,6 +20,19 @@ export interface IQuestionRepository {
 
 export class QuestionRepository implements IQuestionRepository {
   constructor(private db: Database) {}
+  async getQuestions(): Promise<Result<QuestionWithOptions[]>> {
+    const result = await this.db.query.questions.findMany({
+      with: {
+        options: true,
+        progress: true,
+      },
+    });
+
+    return {
+      success: true,
+      data: result,
+    };
+  }
   async getQuestionById(id: string): Promise<Result<QuestionWithOptions>> {
     const question = await this.db.query.questions.findFirst({
       with: {
