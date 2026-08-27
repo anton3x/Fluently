@@ -48,7 +48,8 @@
     "check": "Comprobar",
     "next": "Siguiente",
     "errorTitle": "Algo salió mal",
-    "errorDescription": "No pudimos cargar tu pregunta de práctica. Inténtalo de nuevo."
+    "errorDescription": "No pudimos cargar tu pregunta de práctica. Inténtalo de nuevo.",
+    "openQuestionList": "Abrir lista de preguntas"
   },
   "settings": {
     "general": "Ajustes generales",
@@ -120,6 +121,10 @@
     }
   },
   "questions": {
+    "title": "Preguntas",
+    "selectDescription": "{{count}} preguntas disponibles",
+    "empty": "Aún no hay preguntas",
+    "searchPlaceholder": "Buscar preguntas...",
     "import": {
       "title": "Añadir preguntas",
       "description": "Selecciona un archivo JSON para añadir preguntas",
