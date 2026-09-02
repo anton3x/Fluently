@@ -122,11 +122,15 @@ export default function QuestionsBottomSheet({
               renderItem={renderItem}
               contentContainerClassName="gap-3 pb-6"
               showsVerticalScrollIndicator={false}
-              ItemSeparatorComponent={() => <View className="h-3" />}
+              ItemSeparatorComponent={QuestionListItemSeparator}
             />
           )}
         </BottomSheet.Content>
       </BottomSheet.Portal>
     </BottomSheet>
   );
+}
+
+function QuestionListItemSeparator() {
+  return <View className="h-3" />;
 }
