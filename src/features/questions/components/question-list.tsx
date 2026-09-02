@@ -122,7 +122,7 @@ export default function QuestionsBottomSheet({
               renderItem={renderItem}
               contentContainerClassName="gap-3 pb-6"
               showsVerticalScrollIndicator={false}
-              ItemSeparatorComponent={<QuestionListItemSeparator />}
+              ItemSeparatorComponent={QuestionListItemSeparator}
             />
           )}
         </BottomSheet.Content>
