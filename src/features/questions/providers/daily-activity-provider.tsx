@@ -9,7 +9,7 @@ import {
 
 const DailyActivityContext = createContext<IDailyActivityRepository | null>(null);
 
-export function DailyActivityProvider({ children }: PropsWithChildren) {
+export function DailyActivityProvider({ children }: Readonly<PropsWithChildren>) {
   const db = useDatabase();
 
   const repository = useMemo(() => new DailyActivityRepository(db), [db]);

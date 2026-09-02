@@ -21,7 +21,7 @@ export default function QuestionsBottomSheet({
   onOpenChange,
   onSelect,
   questions,
-}: QuestionListProps) {
+}: Readonly<QuestionListProps>) {
   const { t } = useTranslation();
   const [searchQuery, setSearchQuery] = useState<string>("");
 

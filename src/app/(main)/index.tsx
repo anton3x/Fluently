@@ -16,15 +16,7 @@ import { useProgress } from "@/features/questions/hooks/use-progress";
 import QuestionsBottomSheet from "@/features/questions/components/question-list";
 import { useQuestions } from "@/features/questions/hooks/use-questions";
 import { useQuestion } from "@/features/questions/hooks/use-question";
-
-function shuffle<T>(array: T[]): T[] {
-  const result = [...array];
-  for (let i = result.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [result[i], result[j]] = [result[j], result[i]];
-  }
-  return result;
-}
+import { shuffle } from "@/utils";
 
 export default function PracticeScreen() {
   const insets = useSafeAreaInsets();
@@ -242,7 +234,7 @@ export default function PracticeScreen() {
       <QuestionsBottomSheet
         isOpen={isQuestionListOpen}
         onOpenChange={setIsQuestionListOpen}
-        questions={!questions ? [] : questions}
+        questions={questions ?? []}
         onSelect={(selectedQuestion) => {
           Speech.stop();
 
