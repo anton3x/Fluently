@@ -13,7 +13,7 @@ export interface IDailyActivityRepository {
 }
 
 export class DailyActivityRepository implements IDailyActivityRepository {
-  constructor(private db: Database) {}
+  constructor(private readonly db: Database) {}
 
   async getByDate(date: string): Promise<Result<DailyActivity>> {
     try {
