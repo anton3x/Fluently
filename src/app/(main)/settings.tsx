@@ -8,11 +8,12 @@ import {
   ScrollShadow,
   Select,
   Separator,
+  Spinner,
   Switch,
   useThemeColor,
   useToast,
 } from "heroui-native";
-import { Text, ScrollView, View, Linking, FlatList } from "react-native";
+import { Text, ScrollView, View, Linking } from "react-native";
 import Constants from "expo-constants";
 import { LinearGradient } from "expo-linear-gradient";
 import { BottomSheetScrollView } from "@gorhom/bottom-sheet";
@@ -178,18 +179,32 @@ export default function SettingsTab() {
           }}
           presentation="bottom-sheet"
         >
-          <Select.Trigger variant="unstyled" asChild>
+          <Select.Trigger variant="unstyled" asChild isDisabled={isLoading}>
             <ListGroup.Item>
               <ListGroup.ItemPrefix>
-                <StyledIonicons name="volume-high-outline" size={22} className="text-foreground" />
+                {isLoading ? (
+                  <Spinner size="sm" />
+                ) : (
+                  <StyledIonicons
+                    name="volume-high-outline"
+                    size={22}
+                    className="text-foreground"
+                  />
+                )}
               </ListGroup.ItemPrefix>
 
               <ListGroup.ItemContent>
                 <ListGroup.ItemTitle>{t("settings.voice.title")}</ListGroup.ItemTitle>
 
                 <ListGroup.ItemDescription>
-                  {voiceOptions?.find((option) => option.value === voiceId)?.label ??
-                    t("settings.voice.selectPlaceholder")}
+                  {isLoading ? (
+                    t("settings.voice.loading")
+                  ) : (
+                    <>
+                      {voiceOptions?.find((option) => option.value === voiceId)?.label ??
+                        t("settings.voice.selectPlaceholder")}
+                    </>
+                  )}
                 </ListGroup.ItemDescription>
               </ListGroup.ItemContent>
 
@@ -202,12 +217,9 @@ export default function SettingsTab() {
 
             <Select.Content presentation="bottom-sheet" snapPoints={["65%"]}>
               <Select.ListLabel>{t("settings.voice.listLabel")}</Select.ListLabel>
-
-              {isLoading ? (
-                <Select.Item value="loading" label={t("settings.voice.loading")} disabled />
-              ) : (
-                voiceOptions?.map((option) => <Select.Item key={option.value} {...option} />)
-              )}
+              {voiceOptions?.map((option) => (
+                <Select.Item key={option.value} {...option} />
+              ))}
             </Select.Content>
           </Select.Portal>
         </Select>
@@ -257,7 +269,10 @@ export default function SettingsTab() {
         <Separator className="mx-4" />
         <QuestionUpload />
         <Separator className="mx-4" />
-        <DailyActivityBottomSheet dailyActivity={dailyActivity ?? []} />
+        <DailyActivityBottomSheet
+          dailyActivity={dailyActivity ?? []}
+          isLoading={isDailyActivityLoading}
+        />
       </ListGroup>
       <Text className="text-sm text-muted mb-2 ml-2">{t("settings.support")}</Text>
       <ListGroup>
