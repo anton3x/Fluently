@@ -20,7 +20,7 @@ export interface IProgressRepository {
 }
 
 export class ProgressRepository implements IProgressRepository {
-  constructor(private db: Database) {}
+  constructor(private readonly db: Database) {}
 
   async recordAnswer({ questionId, isCorrect }: RecordAnswerInput): Promise<Result<void>> {
     try {

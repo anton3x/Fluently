@@ -5,7 +5,7 @@ import { useDatabase } from "@/db";
 import { IProgressRepository, ProgressRepository } from "../repositories/progress-repository";
 const ProgressContext = createContext<IProgressRepository | null>(null);
 
-export function ProgressProvider({ children }: PropsWithChildren) {
+export function ProgressProvider({ children }: Readonly<PropsWithChildren>) {
   const db = useDatabase();
 
   const repository = useMemo(() => new ProgressRepository(db), [db]);

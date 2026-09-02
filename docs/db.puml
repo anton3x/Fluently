@@ -1,0 +1,46 @@
+@startuml
+
+hide methods
+hide stereotypes
+
+entity "questions" as questions {
+  * id : TEXT <<PK>>
+  --
+  * type : TEXT
+  * text : TEXT
+  * phonetic : TEXT
+  * cefr_level : TEXT
+  * created_at : INTEGER
+  --
+  type CHECK : word | sentence
+  cefr_level CHECK : A1 | A2 | B1 | B2 | C1 | C2
+}
+
+entity "question_options" as question_options {
+  * id : TEXT <<PK>>
+  --
+  * question_id : TEXT <<FK>>
+  * language : TEXT
+  * text : TEXT
+  * is_correct : INTEGER
+  * created_at : INTEGER
+  * updated_at : INTEGER
+  --
+  UNIQUE : question_id + language + text
+  language CHECK : pt | es | fr | de | it
+  is_correct CHECK : 0 | 1
+}
+
+entity "question_progress" as question_progress {
+  * question_id : TEXT <<PK, FK>>
+  --
+  * times_seen : INTEGER
+  * times_correct : INTEGER
+  * times_wrong : INTEGER
+  last_answered_at : INTEGER
+}
+
+questions ||--o{ question_options : "has"
+questions ||--o| question_progress : "has"
+
+@enduml
