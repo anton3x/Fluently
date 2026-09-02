@@ -121,6 +121,11 @@
       "sourceTitle": "Quellcode",
       "sourceDescription": "Ein Link zum öffentlichen Repository wird nach der Veröffentlichung hinzugefügt.",
       "githubLink": "Fluently auf GitHub"
+    },
+    "activity": {
+      "title": "Tägliche Aktivität",
+      "description": "Sehen Sie Ihre Lernserie und wie viele Fragen Sie jeden Tag beantwortet haben.",
+      "daysTracked": "Tage erfasst"
     }
   },
   "questions": {
