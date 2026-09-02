@@ -19,7 +19,7 @@ export interface IQuestionRepository {
 }
 
 export class QuestionRepository implements IQuestionRepository {
-  constructor(private db: Database) {}
+  constructor(private readonly db: Database) {}
   async getQuestions(): Promise<Result<QuestionWithOptions[]>> {
     const result = await this.db.query.questions.findMany({
       with: {
