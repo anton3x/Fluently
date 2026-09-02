@@ -118,6 +118,11 @@
       "sourceTitle": "Código fuente",
       "sourceDescription": "Se añadirá un enlace al repositorio público después de la publicación.",
       "githubLink": "Fluently en GitHub"
+    },
+    "activity": {
+      "title": "Actividad diaria",
+      "description": "Ver tu racha de estudios y cuántas preguntas respondiste cada día.",
+      "daysTracked": "días registrados"
     }
   },
   "questions": {

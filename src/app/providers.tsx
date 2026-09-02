@@ -1,6 +1,7 @@
 import { DB_NAME } from "@/constants";
 import { ProgressProvider } from "@/features/questions/providers/progress-provider";
 import { QuestionsProvider } from "@/features/questions/providers/questions-provider";
+import { DailyActivityProvider } from "@/features/questions/providers/daily-activity-provider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { SQLiteProvider } from "expo-sqlite";
 import { HeroUINativeProvider } from "heroui-native/provider";
@@ -14,7 +15,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
       <SQLiteProvider
         databaseName={DB_NAME}
         assetSource={{
-          assetId: require("../../assets/fluently.db"), //TODO: update this to use migrations instead of a prebuilt database
+          assetId: require("../../assets/fluently.db"),
           forceOverwrite: true,
         }}
         options={{
@@ -23,17 +24,19 @@ export default function Providers({ children }: { children: React.ReactNode }) {
       >
         <ProgressProvider>
           <QuestionsProvider>
-            <GestureHandlerRootView style={{ flex: 1 }}>
-              <HeroUINativeProvider
-                config={{
-                  devInfo: {
-                    stylingPrinciples: false,
-                  },
-                }}
-              >
-                {children}
-              </HeroUINativeProvider>
-            </GestureHandlerRootView>
+            <DailyActivityProvider>
+              <GestureHandlerRootView style={{ flex: 1 }}>
+                <HeroUINativeProvider
+                  config={{
+                    devInfo: {
+                      stylingPrinciples: false,
+                    },
+                  }}
+                >
+                  {children}
+                </HeroUINativeProvider>
+              </GestureHandlerRootView>
+            </DailyActivityProvider>
           </QuestionsProvider>
         </ProgressProvider>
       </SQLiteProvider>

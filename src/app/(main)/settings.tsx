@@ -8,6 +8,7 @@ import {
   ScrollShadow,
   Select,
   Separator,
+  Spinner,
   Switch,
   useThemeColor,
   useToast,
@@ -24,6 +25,8 @@ import { useVoices } from "@/features/questions/hooks/use-voices";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { dailyReminderService } from "@/features/notifications/services/daily-reminder-service";
 import QuestionUpload from "@/features/questions/components/question-upload";
+import { useDailyActivity } from "@/features/questions/hooks/use-daily-activity";
+import DailyActivityBottomSheet from "@/features/questions/components/daily-activity-bottom-sheet";
 
 const StyledIonicons = withUniwind(Ionicons);
 
@@ -43,6 +46,7 @@ export default function SettingsTab() {
   const setVoiceId = useSettingsStore((state) => state.setVoiceId);
 
   const { data: voices, isLoading } = useVoices();
+  const { data: dailyActivity, isLoading: isDailyActivityLoading } = useDailyActivity();
 
   const isDailyReminderEnabled = useSettingsStore((state) => state.dailyReminderEnabled);
   const setDailyReminderEnabled = useSettingsStore((state) => state.setDailyReminderEnabled);
@@ -175,18 +179,32 @@ export default function SettingsTab() {
           }}
           presentation="bottom-sheet"
         >
-          <Select.Trigger variant="unstyled" asChild>
+          <Select.Trigger variant="unstyled" asChild isDisabled={isLoading}>
             <ListGroup.Item>
               <ListGroup.ItemPrefix>
-                <StyledIonicons name="volume-high-outline" size={22} className="text-foreground" />
+                {isLoading ? (
+                  <Spinner size="sm" />
+                ) : (
+                  <StyledIonicons
+                    name="volume-high-outline"
+                    size={22}
+                    className="text-foreground"
+                  />
+                )}
               </ListGroup.ItemPrefix>
 
               <ListGroup.ItemContent>
                 <ListGroup.ItemTitle>{t("settings.voice.title")}</ListGroup.ItemTitle>
 
                 <ListGroup.ItemDescription>
-                  {voiceOptions?.find((option) => option.value === voiceId)?.label ??
-                    t("settings.voice.selectPlaceholder")}
+                  {isLoading ? (
+                    t("settings.voice.loading")
+                  ) : (
+                    <>
+                      {voiceOptions?.find((option) => option.value === voiceId)?.label ??
+                        t("settings.voice.selectPlaceholder")}
+                    </>
+                  )}
                 </ListGroup.ItemDescription>
               </ListGroup.ItemContent>
 
@@ -199,12 +217,9 @@ export default function SettingsTab() {
 
             <Select.Content presentation="bottom-sheet" snapPoints={["65%"]}>
               <Select.ListLabel>{t("settings.voice.listLabel")}</Select.ListLabel>
-
-              {isLoading ? (
-                <Select.Item value="loading" label={t("settings.voice.loading")} disabled />
-              ) : (
-                voiceOptions?.map((option) => <Select.Item key={option.value} {...option} />)
-              )}
+              {voiceOptions?.map((option) => (
+                <Select.Item key={option.value} {...option} />
+              ))}
             </Select.Content>
           </Select.Portal>
         </Select>
@@ -254,6 +269,10 @@ export default function SettingsTab() {
         <Separator className="mx-4" />
         <QuestionUpload />
         <Separator className="mx-4" />
+        <DailyActivityBottomSheet
+          dailyActivity={dailyActivity ?? []}
+          isLoading={isDailyActivityLoading}
+        />
       </ListGroup>
       <Text className="text-sm text-muted mb-2 ml-2">{t("settings.support")}</Text>
       <ListGroup>
