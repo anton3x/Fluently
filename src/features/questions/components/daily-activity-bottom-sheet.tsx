@@ -32,7 +32,7 @@ type DailyActivityBottomSheetProps = {
 export default function DailyActivityBottomSheet({
   dailyActivity,
   isLoading,
-}: DailyActivityBottomSheetProps) {
+}: Readonly<DailyActivityBottomSheetProps>) {
   const [selectedDay, setSelectedDay] = useState<DailyActivity | null>(null);
   const { t } = useTranslation();
 

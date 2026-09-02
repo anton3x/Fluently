@@ -6,7 +6,7 @@ import { IQuestionRepository, QuestionRepository } from "../repositories/questio
 
 const QuestionsContext = createContext<IQuestionRepository | null>(null);
 
-export function QuestionsProvider({ children }: PropsWithChildren) {
+export function QuestionsProvider({ children }: Readonly<PropsWithChildren>) {
   const db = useDatabase();
 
   const repository = useMemo(() => new QuestionRepository(db), [db]);
