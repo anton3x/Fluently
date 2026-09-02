@@ -1,5 +1,5 @@
 import { FlatList, View } from "react-native";
-import { BottomSheet, ListGroup, PressableFeedback, Typography } from "heroui-native";
+import { BottomSheet, ListGroup, PressableFeedback, Spinner, Typography } from "heroui-native";
 import Ionicons from "@react-native-vector-icons/ionicons";
 import { withUniwind } from "uniwind";
 import { DailyActivity } from "@/db/schema";
@@ -26,25 +26,35 @@ const formatDate = (date: string) => {
 
 type DailyActivityBottomSheetProps = {
   dailyActivity: DailyActivity[];
+  isLoading: boolean;
 };
 
-export default function DailyActivityBottomSheet({ dailyActivity }: DailyActivityBottomSheetProps) {
+export default function DailyActivityBottomSheet({
+  dailyActivity,
+  isLoading,
+}: DailyActivityBottomSheetProps) {
   const [selectedDay, setSelectedDay] = useState<DailyActivity | null>(null);
   const { t } = useTranslation();
 
   return (
     <BottomSheet>
-      <BottomSheet.Trigger asChild>
+      <BottomSheet.Trigger asChild disabled={isLoading}>
         <ListGroup.Item>
           <ListGroup.ItemPrefix>
-            <StyledIonicons name="calendar-outline" size={22} className="text-foreground" />
+            {isLoading ? (
+              <Spinner size="sm" />
+            ) : (
+              <StyledIonicons name="calendar-outline" size={22} className="text-foreground" />
+            )}
           </ListGroup.ItemPrefix>
 
           <ListGroup.ItemContent>
             <ListGroup.ItemTitle>{t("settings.activity.title")}</ListGroup.ItemTitle>
 
             <ListGroup.ItemDescription>
-              {dailyActivity.length} {t("settings.activity.daysTracked")}
+              {isLoading
+                ? t("settings.activity.loading", "Loading…")
+                : `${dailyActivity.length} ${t("settings.activity.daysTracked")}`}
             </ListGroup.ItemDescription>
           </ListGroup.ItemContent>
 
