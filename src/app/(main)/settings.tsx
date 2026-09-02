@@ -12,7 +12,7 @@ import {
   useThemeColor,
   useToast,
 } from "heroui-native";
-import { Text, ScrollView, View, Linking } from "react-native";
+import { Text, ScrollView, View, Linking, FlatList } from "react-native";
 import Constants from "expo-constants";
 import { LinearGradient } from "expo-linear-gradient";
 import { BottomSheetScrollView } from "@gorhom/bottom-sheet";
@@ -24,6 +24,8 @@ import { useVoices } from "@/features/questions/hooks/use-voices";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { dailyReminderService } from "@/features/notifications/services/daily-reminder-service";
 import QuestionUpload from "@/features/questions/components/question-upload";
+import { useDailyActivity } from "@/features/questions/hooks/use-daily-activity";
+import DailyActivityBottomSheet from "@/features/questions/components/daily-activity-bottom-sheet";
 
 const StyledIonicons = withUniwind(Ionicons);
 
@@ -43,6 +45,7 @@ export default function SettingsTab() {
   const setVoiceId = useSettingsStore((state) => state.setVoiceId);
 
   const { data: voices, isLoading } = useVoices();
+  const { data: dailyActivity, isLoading: isDailyActivityLoading } = useDailyActivity();
 
   const isDailyReminderEnabled = useSettingsStore((state) => state.dailyReminderEnabled);
   const setDailyReminderEnabled = useSettingsStore((state) => state.setDailyReminderEnabled);
@@ -254,6 +257,7 @@ export default function SettingsTab() {
         <Separator className="mx-4" />
         <QuestionUpload />
         <Separator className="mx-4" />
+        <DailyActivityBottomSheet dailyActivity={dailyActivity ?? []} />
       </ListGroup>
       <Text className="text-sm text-muted mb-2 ml-2">{t("settings.support")}</Text>
       <ListGroup>

@@ -103,6 +103,28 @@ export const questionProgress = sqliteTable("question_progress", {
   }),
 });
 
+export const dailyActivity = sqliteTable("daily_activity", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+
+  date: text("date").notNull(),
+
+  questionsAnswered: integer("questions_answered").notNull().default(0),
+
+  timesCorrect: integer("times_correct").notNull().default(0),
+
+  timesWrong: integer("times_wrong").notNull().default(0),
+
+  createdAt: integer("created_at", {
+    mode: "timestamp",
+  }).notNull(),
+
+  updatedAt: integer("updated_at", {
+    mode: "timestamp",
+  }).notNull(),
+});
+
+export type DailyActivity = typeof dailyActivity.$inferInsert;
+
 export type QuestionProgress = typeof questionProgress.$inferInsert;
 
 export const questionsRelations = relations(questions, ({ many, one }) => ({

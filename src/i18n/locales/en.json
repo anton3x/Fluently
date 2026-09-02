@@ -118,6 +118,11 @@
       "sourceTitle": "Source code",
       "sourceDescription": "A public source repository link will be added after publication.",
       "githubLink": "Fluently on GitHub"
+    },
+    "activity": {
+      "title": "Daily Activity",
+      "description": "View your study streak and how many questions you answered each day.",
+      "daysTracked": "days tracked"
     }
   },
   "questions": {
