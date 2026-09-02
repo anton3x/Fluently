@@ -15,7 +15,8 @@
     "db:generate": "drizzle-kit generate",
     "db:check": "drizzle-kit check",
     "test": "jest --watchAll",
-    "test:ci": "jest --ci --runInBand --coverage"
+    "test:ci": "jest --ci --runInBand --coverage",
+    "postinstall": "lefthook install -f"
   },
   "jest": {
     "preset": "jest-expo",
@@ -49,6 +50,7 @@
     "expo-status-bar": "~57.0.0",
     "heroui-native": "^1.0.8",
     "i18next": "^26.4.0",
+    "lefthook": "^2.1.12",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-i18next": "^17.0.12",
